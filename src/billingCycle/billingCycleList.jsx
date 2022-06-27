@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { getList } from "./billingCycleActions";
+import { connect } from "react-redux";
+import { getList } from "./billingCycleActions.js";
 
 class BillingCycleList extends Component {
   componentWillMount() {
@@ -12,9 +12,9 @@ class BillingCycleList extends Component {
     const list = this.props.list || [];
     return list.map((bc) => (
       <tr key={bc._id}>
-        <td>{bc.name}</td>
-        <td>{bc.month}</td>
-        <td>{bc.year}</td>
+        <td> {bc.name}</td>
+        <td> {bc.month}</td>
+        <td> {bc.year}</td>
       </tr>
     ));
   }
@@ -26,7 +26,7 @@ class BillingCycleList extends Component {
           <thead>
             <tr>
               <th>Nome</th>
-              <th>Mes</th>
+              <th>Mês</th>
               <th>Ano</th>
             </tr>
           </thead>
@@ -36,6 +36,7 @@ class BillingCycleList extends Component {
     );
   }
 }
+
 const mapStateToProps = (state) => ({ list: state.billingCycle.list });
 const mapDispatchToProps = (dispatch) =>
   bindActionCreators({ getList }, dispatch);
