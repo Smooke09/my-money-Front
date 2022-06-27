@@ -2,6 +2,7 @@ import axios from "axios";
 import { toastr } from "react-redux-toastr";
 import { reset as reseteForm } from "redux-form";
 import { showTabs, selectTab } from "../common/tab/tabActions";
+import BillingCycle from './billingCycle';
 
 const BASE_URL = "http://localhost:3003/api";
 
@@ -30,4 +31,11 @@ export function create(values) {
         e.response.data.erros.forEach((error) => toastr.error("Erro", error));
       });
   };
+}
+
+export function showUpdate(billingCycle){
+  return [
+    showTabs('tabUpdate'),
+    selectTab('tabUpdate')
+  ]
 }
