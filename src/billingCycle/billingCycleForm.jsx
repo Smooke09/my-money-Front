@@ -9,9 +9,17 @@ import ItemList from "./itemList.jsx";
 import Summary from "./summary.jsx";
 
 class BillingCycleForm extends Component {
+  calculateSummary() {
+    const sum = (t, v) => t + v;
+    return {
+      sumOfCredits: this.props.credits.map((c) => +c.value || 0).reduce(sum),
+      sumOfDebts: this.props.debts.map((d) => +d.value || 0).reduce(sum),
+    };
+  }
+
   render() {
     const { handleSubmit, readOnly, credits, debts } = this.props;
-
+    const { sumOfCredits, sumOfDebts } = this.calculateSummary();
     return (
       <form role="form" onSubmit={handleSubmit}>
         <div className="box-body">
@@ -41,7 +49,7 @@ class BillingCycleForm extends Component {
             placeholder="Informe o Ano"
             readOnly={readOnly}
           />
-          <Summary credits={1000} debts={2000} />
+          <Summary credits={sumOfCredits} debts={sumOfDebts} />
           <ItemList
             cols="12 10"
             list={credits}
