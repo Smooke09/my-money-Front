@@ -2,6 +2,7 @@
   position: fixed;
   bottom: 0px;
   width: 100%;
+  padding-top: 5px;
 }
 
 button {
@@ -10,4 +11,8 @@ button {
 
 .table-actions {
   width: 150px;
+}
+
+.flex {
+  display: flex;
 }
