@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
 import { reducer as formReducer } from "redux-form";
 import { reducer as toastrReducer } from "react-redux-toastr";
+import AuthReducer from "../auth/authReducer";
 
 import DashboardReducer from "../dashboard/dashboardReducer";
 import tabReducer from "../common/tab/tabReducer";
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   billingCycle: BillingCycleReduce,
   form: formReducer,
   toastr: toastrReducer,
+  auth: AuthReducer,
 });
 
 export default rootReducer;
