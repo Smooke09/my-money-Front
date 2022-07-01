@@ -1,7 +1,7 @@
 //armazenando no localStorage o login
 const userKey = "_mymoney_user";
 const INITIAL_STATE = {
-  user: { name: "pedro", email: "pedroteste@gmail.com" }, //JSON.parse(localStorage.getItem(userKey)),
+  user: JSON.parse(localStorage.getItem(userKey)),
   validToken: false,
 };
 

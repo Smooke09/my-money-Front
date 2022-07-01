@@ -1,8 +1,7 @@
 import React from "react";
 import If from "../operator/if";
-
 export default (props) => (
-  <If teste={!props.hide}>
+  <If test={!props.hide}>
     <div className="form-group has-feedback">
       <input
         {...props.input}
@@ -12,7 +11,8 @@ export default (props) => (
         type={props.type}
       />
       <span
-        className={`glyphicon glyphicon-${props.icon} form-control-feedback`}
+        className={`glyphicon glyphicon-${props.icon}
+  form-control-feedback`}
       ></span>
     </div>
   </If>
